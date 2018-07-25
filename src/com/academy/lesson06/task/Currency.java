@@ -30,13 +30,21 @@ package com.academy.lesson06.task;
         void multiply(double factor); // умножение суммы на число
 */
 
+import java.util.Objects;
+
 public class Currency {
 
+    private static final String[] CURRENCIES_SUPPORTED = {"грн", "руб", "$"};
     private double value;
     private String name;  ///("грн", "руб", "$")
 
-    // TODO check
+    private boolean valid = true;
+
     public Currency(double value, String name) {
+        if (!ensureValidCurrency(name)) {
+            valid = false;
+            return;
+        }
         this.value = value;
         this.name = name;
     }
@@ -58,9 +66,16 @@ public class Currency {
         return name;
     }
 
-    // TODO check
     public void setName(String name) {
+        if (!ensureValidCurrency(name)) {
+            valid = false;
+            return;
+        }
         this.name = name;
+    }
+
+    public boolean isValid() {
+        return valid;
     }
 
     public void print() {
@@ -75,5 +90,39 @@ public class Currency {
             return false;
 
         return true;
+    }
+
+    // TODO check name is correspond to CURRENCIES_SUPPORTED
+    private boolean ensureValidCurrency(String name) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%.2f%s", value, name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Currency currency = (Currency) o;
+        return Double.compare(currency.value, value) == 0 &&
+                Objects.equals(name, currency.name);
+
+//        Currency other = (Currency) o;
+//        if (this.value != other.value)
+//            return false;
+//
+//        if (!this.name.equals(other.name))
+//            return false;
+//
+//        return true;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(value, name);
     }
 }

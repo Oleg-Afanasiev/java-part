@@ -16,7 +16,7 @@ public class Demo {
         button.getWidth();
         button.setText("Log In");
         System.out.println(button.getText());
-        System.out.println(button.text);
+        System.out.println(button.getText());
         System.out.println(button.getWidth());
 
         //

@@ -11,9 +11,49 @@ public class CurrencyTests {
     }
 
     public void constructorTest() {
-        Currency cur = new Currency(10, "руб");
-        assert cur.getValue() == 10;
-        assert cur.getName().equals("руб");
+        // test data
+//        int[] values = {10, 0, -3};
+//        String[] names = {"руб", "грн", "$"};
+
+        CurrencyTestData[] positiveTestData = new CurrencyTestData[]{
+                new CurrencyTestData(10, "руб"),
+                new CurrencyTestData(0, "грн"),
+                new CurrencyTestData(-3, "$")
+        };
+
+        CurrencyTestData[] negativeTestData = new CurrencyTestData[]{
+                new CurrencyTestData(10, ""),
+                new CurrencyTestData(0, "@"),
+                new CurrencyTestData(-3, "euro")
+        };
+
+        // test logic
+        for (int i = 0; i < positiveTestData.length; i++) {
+//            Currency cur = new Currency(values[i], names[i]);
+//            assert cur.getValue() == values[i];
+//            assert cur.getName().equals(names[i]);
+
+            String name = positiveTestData[i].getName();
+            double value = positiveTestData[i].getValue();
+
+            Currency cur = new Currency(value, name);
+            assert cur.getValue() == value;
+            assert cur.getName().equals(name);
+            assert cur.isValid();
+        }
+
+        for (int i = 0; i < negativeTestData.length; i++) {
+//            Currency cur = new Currency(values[i], names[i]);
+//            assert cur.getValue() == values[i];
+//            assert cur.getName().equals(names[i]);
+
+            String name = negativeTestData[i].getName();
+            double value = negativeTestData[i].getValue();
+
+            Currency cur = new Currency(value, name);
+            assert !cur.isValid();
+
+        }
     }
 
     public void copyConstructorTest() {
