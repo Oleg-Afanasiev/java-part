@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
+<!--Конфигурация для testNG фреймворка-->
 <suite name="suit">
     <test name="tests">
         <packages>
+            <!--Запускаем все тесты из пакета 'com.academy.tests.*'-->
             <package name="com.academy.tests.*" />
         </packages>
     </test>
