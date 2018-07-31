@@ -1,3 +1,0 @@
-b->master
-c->master
-3->bug fix
