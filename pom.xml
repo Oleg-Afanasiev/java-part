@@ -26,6 +26,13 @@
             <version>6.14.3</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.academy.fx</groupId>
+            <artifactId>login-form</artifactId>
+            <version>1.0</version>
+        </dependency>
+
     </dependencies>
 
     <!--Управление плагинами-->
