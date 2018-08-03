@@ -1,4 +1,4 @@
-package com.academy.tests.Lesson10;
+package com.academy.tests.lesson10;
 
 import com.academy.fx.model.RegistrationForm;
 import com.academy.fx.validator.RegistrationValidator;
