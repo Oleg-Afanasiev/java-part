@@ -1,9 +1,6 @@
 package com.academy.tests.lesson10.task1;
 
-import com.academy.lesson10.task1.Time;
-import com.academy.lesson10.task1.TimeFormat;
-import com.academy.lesson10.task1.TimeImpl;
-import com.academy.lesson10.task1.TimeImplSeconds;
+import com.academy.lesson10.task1.*;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
@@ -29,16 +26,20 @@ public class TimeTests {
             };
 
         // test logic and asserts
-        for (Object[] row : testData) {
-            Time time1 = new TimeImpl();
-            Time time2 = new TimeImplSeconds();
-            time1.setTime((int)row[HOUR_I], (int)row[MINUTE_I], (int)row[SECOND_I]);
-            time2.setTime((int)row[HOUR_I], (int)row[MINUTE_I], (int)row[SECOND_I]);
-            String timeStr1 = time1.getTime((TimeFormat) row[FORMAT_I]);
-            String timeStr2 = time2.getTime((TimeFormat)row[FORMAT_I]);
+        try {
+            for (Object[] row : testData) {
+                Time time1 = new TimeImpl();
+                Time time2 = new TimeImplSeconds();
+                time1.setTime((int)row[HOUR_I], (int)row[MINUTE_I], (int)row[SECOND_I]);
+                time2.setTime((int)row[HOUR_I], (int)row[MINUTE_I], (int)row[SECOND_I]);
+                String timeStr1 = time1.getTime((TimeFormat) row[FORMAT_I]);
+                String timeStr2 = time2.getTime((TimeFormat)row[FORMAT_I]);
 
-            Assert.assertEquals(timeStr1, (String)row[EXPECTED_I]);
-            Assert.assertEquals(timeStr2, (String)row[EXPECTED_I]);
+                Assert.assertEquals(timeStr1, (String)row[EXPECTED_I]);
+                Assert.assertEquals(timeStr2, (String)row[EXPECTED_I]);
+            }
+        } catch (IncorrectTimeFormat incorrectTimeFormat) {
+            Assert.fail();
         }
 //        Time time1 = new TimeImpl();
 //        Time time2 = new TimeImplSeconds();
