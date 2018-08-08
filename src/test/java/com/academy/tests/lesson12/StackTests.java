@@ -1,9 +1,9 @@
 package com.academy.tests.lesson12;
 
-import com.academy.lesson12.EmptyStackException;
-import com.academy.lesson12.FullStackException;
-import com.academy.lesson12.Stack;
-import com.academy.lesson12.StackImpl;
+import com.academy.lesson12.stack.EmptyStackException;
+import com.academy.lesson12.stack.FullStackException;
+import com.academy.lesson12.stack.Stack;
+import com.academy.lesson12.stack.StackImpl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

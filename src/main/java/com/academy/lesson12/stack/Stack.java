@@ -1,4 +1,4 @@
-package com.academy.lesson12;
+package com.academy.lesson12.stack;
 
 
 public interface Stack<T> {

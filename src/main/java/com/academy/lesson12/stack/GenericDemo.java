@@ -1,4 +1,4 @@
-package com.academy.lesson12;
+package com.academy.lesson12.stack;
 
 public class GenericDemo {
     public static void main(String[] args) {
