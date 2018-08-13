@@ -87,7 +87,7 @@ public class DemoMain {
         System.out.println(personList);
     }
 
-    private static void fillPersonsRandom(Person[] personArr) {
+    public static void fillPersonsRandom(Person[] personArr) {
         String[] names = {"Peter", "Helen", "Andry", "Abdel", "Kate", "Veronica", "Leonid", "Alex", "Max"};
         final int ageFrom = 10;
         final int ageTo = 90;

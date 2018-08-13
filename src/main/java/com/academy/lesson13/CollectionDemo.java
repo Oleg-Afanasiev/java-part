@@ -5,9 +5,20 @@ import java.util.Map.Entry;
 
 public class CollectionDemo {
     public static void main(String[] args) {
-        listDemo();
-        mapDemo();
-        sortDemo();
+//        listDemo();
+//        mapDemo();
+//        sortDemo();
+        foreachDemo();
+    }
+
+    private static void foreachDemo() {
+        Group group = new Group();
+        group.add(new Person(1L, "Peter", 20));
+        group.add(new Person(4L, "Helen", 25));
+        group.add(new Person(6L, "Ivan", 43));
+
+        for(Person p : group)
+            System.out.println(p);
     }
 
     private static void sortDemo() {
