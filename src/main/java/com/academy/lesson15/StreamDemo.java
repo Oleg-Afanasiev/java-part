@@ -5,6 +5,7 @@ import com.academy.lesson13.Person;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 import static com.academy.lesson14.DemoMain.fillPersonsRandom;
@@ -18,7 +19,13 @@ public class StreamDemo {
 //        streamToArray();
 //        streamReduce();
         streamSubtract();
+        tmp();
+    }
 
+    private static void tmp() {
+        Random rnd = new Random();
+        int n = 100000 + rnd.nextInt(900000);
+        String elementaryPhoneNumber = "999"+n+"5";
     }
 
     private static void streamSubtract() {
