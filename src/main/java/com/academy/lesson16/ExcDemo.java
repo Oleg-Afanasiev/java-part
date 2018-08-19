@@ -3,7 +3,6 @@ package com.academy.lesson16;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.function.Consumer;
 
 public class ExcDemo {
     private static String pathSorted = "d:/teaching/telesens-academy/QA-JA-04/Задания/Lesson_16/имена на И.txt";
@@ -11,7 +10,7 @@ public class ExcDemo {
     private static  OutputStreamWriter  osw;
     public static void main(String[] args) {
         init();
-        readNamesDemo();
+        readAndWriteNamesDemo();
         close();
     }
 
@@ -35,7 +34,7 @@ public class ExcDemo {
         }
     }
 
-    private static void readNamesDemo() {
+    private static void readAndWriteNamesDemo() {
         String path = "d:/teaching/telesens-academy/QA-JA-04/Задания/Lesson_16/женские имена.txt";
 
         try {
