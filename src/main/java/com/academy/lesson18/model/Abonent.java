@@ -7,7 +7,7 @@ public class Abonent {
     private String firstName; 	// имя
     private String lastName;  	// фамилия
     private int age; 			// возраст
-    private Gender gender;
+    private Gender gender;      // пол - перечисление
 
     public long getAbonentId() {
         return abonentId;

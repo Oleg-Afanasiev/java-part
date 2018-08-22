@@ -1,5 +1,6 @@
 package com.academy.tests.lesson19.automationpractice;
 
+import com.academy.lesson18.manager.PropertyManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,15 +18,16 @@ public class LoginTests {
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
+  private PropertyManager propertyManager = PropertyManager.getInstance();
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
-    System.setProperty("webdriver.chrome.driver", "d:/distribs/selenium/chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", propertyManager.getProperty("chrome.driver"));
     driver = new ChromeDriver();
 
-    System.setProperty("webdriver.gecko.driver", "d:/distribs/selenium/geckodriver.exe");
+    System.setProperty("webdriver.gecko.driver", propertyManager.getProperty("firefox.driver"));
     driver = new FirefoxDriver();
-    baseUrl = "http://automationpractice.com/index.php";
+    baseUrl = propertyManager.getProperty("automation.baseurl");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -34,9 +36,9 @@ public class LoginTests {
     driver.get(baseUrl);
     driver.findElement(By.linkText("Sign in")).click();
     driver.findElement(By.id("email")).clear();
-    driver.findElement(By.id("email")).sendKeys("oleg.kh81@gmail.com");
+    driver.findElement(By.id("email")).sendKeys(propertyManager.getProperty("automation.username"));
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("123qwerty");
+    driver.findElement(By.id("passwd")).sendKeys(propertyManager.getProperty("automation.password"));
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]")).click();
     try {
       assertEquals(driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Sign out'])[1]/preceding::span[1]")).getText(), "Oleg Afanasiev");
@@ -44,6 +46,11 @@ public class LoginTests {
       verificationErrors.append(e.toString());
     }
     driver.findElement(By.linkText("Sign out")).click();
+  }
+
+  @Test
+  public void testAuthIncorrect() {
+
   }
 
   @AfterClass(alwaysRun = true)

@@ -47,6 +47,13 @@
             <version>1.0</version>
         </dependency>
 
+        <!--Lib for excel-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+        </dependency>
+
     </dependencies>
 
     <!--Управление плагинами-->
