@@ -6,7 +6,7 @@
     <test name="tests">
         <packages>
             <!--Запускаем все тесты из пакета 'com.academy.tests.*'-->
-            <package name="com.academy.tests.lesson12.*" />
+            <package name="com.academy.tests.lesson19.*" />
         </packages>
     </test>
 </suite>

@@ -27,6 +27,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!--Selenium + WebDriver-->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.14.0</version>
+        </dependency>
+
         <!--MySql connector-->
         <dependency>
             <groupId>mysql</groupId>
