@@ -5,17 +5,14 @@ import com.academy.lesson18.manager.PropertyManager;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class BaseDao {
 
-    private Properties properties;
-
-    public BaseDao() {
+    protected BaseDao() {
         init();
     }
 
-    protected void init() {
+    private void init() {
 
         try {
             Class.forName(PropertyManager.getProperty("jdbc.driver"));
