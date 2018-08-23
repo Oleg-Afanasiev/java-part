@@ -27,6 +27,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!--Selenium + WebDriver-->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.14.0</version>
+        </dependency>
+
         <!--MySql connector-->
         <dependency>
             <groupId>mysql</groupId>
@@ -38,6 +45,13 @@
             <groupId>com.academy.fx</groupId>
             <artifactId>login-form</artifactId>
             <version>1.0</version>
+        </dependency>
+
+        <!--Lib for excel-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
         </dependency>
 
     </dependencies>

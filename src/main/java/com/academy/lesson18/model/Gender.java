@@ -16,4 +16,15 @@ public enum Gender {
         }
         return null;
     }
+
+    public Character toChar() {
+        switch (this) {
+            case MALE:
+                return 'm';
+
+            case FEMALE:
+                return 'f';
+        }
+        return null;
+    }
 }

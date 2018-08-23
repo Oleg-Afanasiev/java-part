@@ -11,10 +11,23 @@ import java.util.List;
 public class AbonentDaoImpl extends BaseDao implements AbonentDao {
 
     private static final String SQL_SELECT_ALL = "SELECT * FROM abonent";
+    private static final String SQL_INSERT = "INSERT INTO abonent (first_name, last_name, age, gender)" +
+            " VALUES (?, ?, ?, ?)";
 
     @Override
     public boolean save(Abonent abonent) {
-        return false;
+        try(Connection connection = getConnection()) {
+            PreparedStatement ps = connection.prepareStatement(SQL_INSERT);
+            ps.setString(1, abonent.getFirstName());
+            ps.setString(2, abonent.getLastName());
+            ps.setInt(3, abonent.getAge());
+            ps.setString(4, abonent.getGender().toChar().toString());
+            return ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
