@@ -7,11 +7,23 @@ import java.util.Properties;
 
 public class PropertyManager {
     private static final String PROP_FILE_NAME = "java-part.properties";
+
     private Properties properties;
 
-    private static PropertyManager instance = new PropertyManager();
+    private static PropertyManager instance;
 
     private PropertyManager() {
+        loadProperties();
+    }
+
+    private static PropertyManager getInstance() {
+        if (instance == null)
+            instance = new PropertyManager();
+
+        return instance;
+    }
+
+    private void loadProperties() {
         // load properties
         properties = new Properties();
         InputStream is= PropertyManager.class.getClassLoader().getResourceAsStream(PROP_FILE_NAME);
@@ -22,11 +34,7 @@ public class PropertyManager {
         }
     }
 
-    public static PropertyManager getInstance() {
-        return instance;
-    }
-
-    public String getProperty(String key) {
-        return properties.getProperty(key);
+    public static String getProperty(String key) {
+        return getInstance().properties.getProperty(key);
     }
 }
