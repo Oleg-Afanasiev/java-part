@@ -19,16 +19,16 @@ public class LoginTests {
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
-  private PropertyManager propertyManager = PropertyManager.getInstance();
+//  private PropertyManager propertyManager = PropertyManager.getInstance();
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
-    System.setProperty("webdriver.chrome.driver", propertyManager.getProperty("chrome.driver"));
+    System.setProperty("webdriver.chrome.driver", PropertyManager.getProperty("chrome.driver"));
     driver = new ChromeDriver();
 
-    System.setProperty("webdriver.gecko.driver", propertyManager.getProperty("firefox.driver"));
+    System.setProperty("webdriver.gecko.driver", PropertyManager.getProperty("firefox.driver"));
     driver = new FirefoxDriver();
-    baseUrl = propertyManager.getProperty("automation.baseurl");
+    baseUrl = PropertyManager.getProperty("automation.baseurl");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -37,9 +37,9 @@ public class LoginTests {
     driver.get(baseUrl);
     driver.findElement(By.linkText("Sign in")).click();
     driver.findElement(By.id("email")).clear();
-    driver.findElement(By.id("email")).sendKeys(propertyManager.getProperty("automation.username"));
+    driver.findElement(By.id("email")).sendKeys(PropertyManager.getProperty("automation.username"));
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(propertyManager.getProperty("automation.password"));
+    driver.findElement(By.id("passwd")).sendKeys(PropertyManager.getProperty("automation.password"));
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Forgot your password?'])[1]/following::span[1]")).click();
     try {
       assertEquals(driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Sign out'])[1]/preceding::span[1]")).getText(), "Oleg Afanasiev");
