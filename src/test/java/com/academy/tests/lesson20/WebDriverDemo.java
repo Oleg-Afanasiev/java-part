@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -13,6 +14,7 @@ import java.time.Duration;
 public class WebDriverDemo {
 
     @Test
+    @Ignore
     public void testRollover() {
         System.out.println("rollover test");
 
