@@ -62,7 +62,7 @@ public class FilterTests {
         WebElement elToInput = driver.findElement(By.id("range-to1"));
 
         new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(3))
+                .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofMillis(10))
                 .ignoring(NumberFormatException.class)
                 .until(driver->{
@@ -147,6 +147,7 @@ public class FilterTests {
     }
 
     @Test
+    @Ignore
     public void filterExactHookahPrice() {
         int from = 1000;
         int to = 3000;
