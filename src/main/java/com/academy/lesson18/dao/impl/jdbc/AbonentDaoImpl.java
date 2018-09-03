@@ -13,6 +13,8 @@ public class AbonentDaoImpl extends BaseDao implements AbonentDao {
     private static final String SQL_SELECT_ALL = "SELECT * FROM abonent";
     private static final String SQL_INSERT = "INSERT INTO abonent (first_name, last_name, age, gender)" +
             " VALUES (?, ?, ?, ?)";
+    private static final String SQL_INSERT_ALL = "INSERT INTO abonent (first_name, last_name, age, gender)" +
+            " VALUES ";
 
     @Override
     public boolean save(Abonent abonent) {
@@ -27,6 +29,26 @@ public class AbonentDaoImpl extends BaseDao implements AbonentDao {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public void saveAll(List<Abonent> abonents) {
+        try(Connection connection = getConnection()) {
+            int i = 1;
+            StringBuilder sb = new StringBuilder(SQL_INSERT_ALL);
+            for (Abonent abonent: abonents) {
+                sb.append(String.format("(%s, %s, %d, %s)",
+                        abonent.getFirstName(), abonent.getLastName(), abonent.getAge(), abonent.getGender()));
+                if (i++ != abonents.size()) {
+                    sb.append(",");
+                }
+            }
+            Statement st = connection.createStatement();
+            st.executeUpdate(sb.toString());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

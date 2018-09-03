@@ -1,4 +1,4 @@
-package com.academy.tests.lesson19.automationpractice;
+package com.academy.tests.lesson19.automationpractice.test;
 
 import com.academy.lesson18.manager.PropertyManager;
 import org.openqa.selenium.*;

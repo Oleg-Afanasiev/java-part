@@ -7,14 +7,14 @@
         <parameter name="browser" value="chrome" />
         <packages>
             <!--Запускаем все тесты из пакета 'com.academy.tests.*'-->
-            <package name="com.academy.tests.lesson20.*" />
+            <package name="com.academy.tests.lesson19.*" />
         </packages>
     </test>
-    <test name="test2">
-        <parameter name="browser" value="firefox" />
-        <packages>
-            <!--Запускаем все тесты из пакета 'com.academy.tests.*'-->
-            <package name="com.academy.tests.lesson20.*" />
-        </packages>
-    </test>
+    <!--<test name="test2">-->
+        <!--<parameter name="browser" value="firefox" />-->
+        <!--<packages>-->
+            <!--&lt;!&ndash;Запускаем все тесты из пакета 'com.academy.tests.*'&ndash;&gt;-->
+            <!--<package name="com.academy.tests.lesson20.*" />-->
+        <!--</packages>-->
+    <!--</test>-->
 </suite>

@@ -9,4 +9,6 @@ public interface AbonentDao {
     boolean remove(Abonent abonent);
     List<Abonent> getAll();
     Abonent findById(long id);
+
+    void saveAll(List<Abonent> abonent);
 }

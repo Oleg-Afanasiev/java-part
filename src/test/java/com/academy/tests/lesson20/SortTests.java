@@ -1,7 +1,7 @@
 package com.academy.tests.lesson20;
 
 
-import com.academy.tests.lesson19.automationpractice.BaseTest;
+import com.academy.tests.lesson19.automationpractice.test.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
